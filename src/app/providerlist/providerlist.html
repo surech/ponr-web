@@ -1,6 +1,5 @@
 <ul>
-  <li>Coop</li>
-  <li>Migros</li>
-  <li>Denner</li>
-  <li>Dynamisch: {{providerListCtrl.text}}</li>
+  <li ng-repeat="provider in providerListCtrl.providers._embedded.provider">
+    {{provider.name}}
+  </li>
 </ul>

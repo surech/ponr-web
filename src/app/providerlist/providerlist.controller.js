@@ -5,16 +5,18 @@
     .module('ponrWeb')
     .controller('ProviderListController', ProviderListController);
 
-  ProviderListController.$inject = ['$log', 'toastr', '$filter'];
+  ProviderListController.$inject = ['$log', 'toastr', '$filter', 'providerService'];
 
   /** @ngInject */
-  function ProviderListController($log, toastr, $filter) {
+  function ProviderListController($log, toastr, $filter, providerService) {
     var vm = this;
-    vm.text = '';
+
+    vm.providers = [];
+
     activate();
 
     function activate() {
-      vm.text = "Manor";
+      vm.providers = providerService.query();
     }
   }
 })();
