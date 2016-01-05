@@ -9,7 +9,10 @@
   function providerdetail() {
     return {
       restrict: 'E',
-      templateUrl: 'app/providerlist/providerdetail.html',
+      scope: {
+        provider: '='
+      },
+      templateUrl: 'app/providerdetail/providerdetail.html',
       controller: 'ProviderDetailController',
       controllerAs: 'providerDetailCtrl'
     };

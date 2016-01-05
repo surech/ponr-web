@@ -1,19 +1,7 @@
 <div class="row">
   <div class="col-xs-6 col-md-3" ng-repeat="provider in providerListCtrl.providers._embedded.provider">
     <div class="thumbnail">
-      <img class="qrcode" src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}"/>
-
-      <div class="caption">
-        <p>
-          <b>{{provider.name}}</b><br>
-          <div class="oneliner">{{provider.description}}</div>
-        </p>
-
-        <p>
-          {{provider.street}}<br>
-          {{provider.zip}} {{provider.city}}
-        </p>
-      </div>
+      <providerdetail provider="provider"></providerdetail>
     </div>
   </div>
 </div>
