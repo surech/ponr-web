@@ -1,4 +1,9 @@
-<img class="qrcode" src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}"/>
+<img ng-show="provider.pointcodes.length" class="qrcode" src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}"/>
+
+<div class="noqrcodeplaceholder" ng-hide="provider.pointcodes.length">
+  <p class="text-center">Für diesen Anbieter wurde noch kein Code hochgeladen</p>
+  <a href="#" class="btn btn-primary center" style="width: 70%" role="button">Code jetzt hochladen!</a>
+</div>
 
 <div class="caption">
   <p>

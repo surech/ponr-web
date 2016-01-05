@@ -17,3 +17,17 @@ img.qrcode {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.noqrcodeplaceholder {
+  height: 250px;
+  width: 250px;
+  background-image: url("/app/images/exampleGray.png");
+  background-color: lightblue;
+  padding-top: 30%;
+}
+
+.center {
+  margin: auto;
+  width: 70%;
+  display: block;
+}
