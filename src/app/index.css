@@ -5,10 +5,15 @@
   padding: 0.2em 0;
 }
 
-.thumbnail {
-  height: 200px;
+img.qrcode {
+  height: 250px;
+  width: 250px;
+  display: block;
 }
 
-.thumbnail img.pull-right {
-  width: 50px;
+.oneliner {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
