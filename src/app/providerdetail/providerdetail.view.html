@@ -1,6 +1,12 @@
-<img ng-show="provider.pointcodes.length" class="qrcode" src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}"/>
+<img ng-show="provider.pointcodes.length" class="qrcode"
+     src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}"/>
 
 <div class="noqrcodeplaceholder" ng-hide="provider.pointcodes.length">
   <p class="text-center">Für diesen Anbieter wurde noch kein Code hochgeladen</p>
-  <a href="" class="btn btn-primary center" ng-click="providerDetailCtrl.showUpload()" style="width: 70%" role="button">Code jetzt hochladen!</a>
+  <span class="btn btn-primary btn-file center">Code jetzt hochladen!
+    <input type="file" id="file1" name="file"
+           ng-files="providerDetailCtrl.addFile($files)"/>
+  </span>
+
+  <p ng-show="providerDetailCtrl.qrcodeError" class="error-text text-center">QRCode konnte nicht gelesen werden</p>
 </div>
