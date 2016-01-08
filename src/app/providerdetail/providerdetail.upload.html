@@ -1,7 +1,9 @@
 <p>Upload</p>
 <p>
-  <input type="file" id="file1" name="file" multiple
+  <span class="btn btn-default btn-file">Durchsuchen
+  <input type="file" id="file1" name="file"
          ng-files="providerDetailCtrl.addFile($files)"/>
+    </span>
 <ul>
   <li ng-repeat="file in providerDetailCtrl.files">
     {{file.name}}
