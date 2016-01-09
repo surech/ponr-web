@@ -1,4 +1,11 @@
 <div class="row">
+<div class="btn-group loadSize" role="group" aria-label="...">
+  <button type="button" class="btn btn-default" ng-class="{'btn-default': providerListCtrl.loadAll, 'btn-primary': !providerListCtrl.loadAll}" ng-click="providerListCtrl.toggleLoad()">Nur mit Codes anzeigen</button>
+  <button type="button" class="btn btn-default" ng-class="{'btn-default': !providerListCtrl.loadAll, 'btn-primary': providerListCtrl.loadAll}" ng-click="providerListCtrl.toggleLoad()">Alle Anzeigen</button>
+</div>
+</div>
+
+<div class="row">
   <div class="col-xs-6 col-md-3" ng-repeat="provider in providerListCtrl.providers._embedded.provider">
     <div class="thumbnail">
       <providerdetail provider="provider"></providerdetail>

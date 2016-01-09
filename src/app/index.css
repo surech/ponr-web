@@ -52,6 +52,11 @@ img.qrcodeUploaded {
   display: block;
 }
 
+.loadSize {
+  float: right;
+  margin-bottom: 20px;
+}
+
 .error-text {
   color: red;
   font-weight: bold;
