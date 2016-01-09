@@ -5,10 +5,10 @@
     .module('ponrWeb')
     .controller('ProviderDetailController', ProviderDetailController);
 
-  ProviderDetailController.$inject = ['$log', 'toastr', '$http'];
+  ProviderDetailController.$inject = ['$log', 'toastr', '$http', '$scope', 'pointcodeService'];
 
   /** @ngInject */
-  function ProviderDetailController($log, toastr, $http) {
+  function ProviderDetailController($log, toastr, $http, $scope, pointcodeService) {
     var vm = this;
 
     // Definiert den Status der QR-Code anzeige
@@ -19,6 +19,9 @@
 
     // Hochgeladener Inhalt des QR-Codes
     vm.qrcodeContent = '';
+
+    // Wahr, wenn ein Upload im Gang ist
+    vm.uploadRunning = false;
 
     vm.ViewState = {
       VIEW: 1,
@@ -62,22 +65,30 @@
       };
 
       // Anfrage auslösen
+      vm.uploadRunning = true;
+
       $http(request).success(function(result){
         vm.qrcodeContent = result.content;
         vm.qrcodeError = false;
+        vm.uploadRunning = false;
 
         vm.showUpload();
       }).error(function(error){
+        vm.uploadRunning = false;
         vm.qrcodeError = true;
       })
     };
 
     vm.saveUpload = function(){
       // Speichern
-      // TODO
+      var code = {
+        content: vm.qrcodeContent,
+        provider: $scope.provider._links.self.href
+      };
+      pointcodeService.create(code);
 
       // Provider anpassen
-      // TODO
+      $scope.provider.pointcodes.push(code);
 
       // View aktualisieren
       vm.cancelUpload();

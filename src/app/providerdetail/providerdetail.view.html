@@ -4,6 +4,7 @@
 <div class="noqrcodeplaceholder" ng-hide="provider.pointcodes.length">
   <p class="text-center">Für diesen Anbieter wurde noch kein Code hochgeladen</p>
   <span class="btn btn-primary btn-file center">Code jetzt hochladen!
+    <img ng-show="providerDetailCtrl.uploadRunning" src="/app/images/loader-blue.gif" />
     <input type="file" id="file1" name="file"
            ng-files="providerDetailCtrl.addFile($files)"/>
   </span>
