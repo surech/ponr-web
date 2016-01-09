@@ -5,10 +5,9 @@
 </div>
 </div>
 
-<div class="row">
-  <div class="col-xs-6 col-md-3" ng-repeat="provider in providerListCtrl.providers._embedded.provider">
-    <div class="thumbnail">
-      <providerdetail provider="provider"></providerdetail>
-    </div>
+<div class="providerGrid">
+  <div class="thumbnail" ng-repeat="provider in providerListCtrl.providers._embedded.provider">
+    <providerdetail provider="provider"></providerdetail>
   </div>
 </div>
+

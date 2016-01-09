@@ -82,3 +82,9 @@ img.qrcodeUploaded {
   cursor: inherit;
   display: block;
 }
+
+.providerGrid .thumbnail {
+  width: 258px;
+  float: left;
+  margin-right: 20px;
+}
