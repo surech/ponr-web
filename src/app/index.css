@@ -5,10 +5,86 @@
   padding: 0.2em 0;
 }
 
-.thumbnail {
-  height: 200px;
+img.qrcode {
+  height: 250px;
+  width: 250px;
+  display: block;
 }
 
-.thumbnail img.pull-right {
-  width: 50px;
+img.qrcodeUploaded {
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.oneliner {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.noqrcodeplaceholder {
+  height: 250px;
+  width: 250px;
+  background-image: url("/app/images/exampleGray.png");
+  background-color: lightblue;
+  padding-top: 30%;
+}
+
+.qrcodeConfirmation {
+  height: 250px;
+  width: 250px;
+  background-color: lightblue;
+
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border: 0px solid #000000;
+}
+
+.center {
+  margin: auto;
+  width: 70%;
+  display: block;
+}
+
+.loadSize {
+  float: right;
+  margin-bottom: 20px;
+}
+
+.error-text {
+  color: red;
+  font-weight: bold;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.providerGrid .thumbnail {
+  width: 258px;
+  float: left;
+  margin-right: 20px;
 }

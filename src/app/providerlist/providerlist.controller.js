@@ -11,12 +11,27 @@
   function ProviderListController($log, toastr, $filter, providerService) {
     var vm = this;
 
+    vm.loadAll = false;
+
     vm.providers = [];
 
     activate();
 
     function activate() {
-      vm.providers = providerService.query();
+      loadProviders();
+    }
+
+    function loadProviders(){
+      if(vm.loadAll) {
+        vm.providers = providerService.query();
+      } else {
+        vm.providers = providerService.queryWithCodes();
+      }
+    }
+    
+    vm.toggleLoad = function(){
+      vm.loadAll = !vm.loadAll;
+      loadProviders();
     }
   }
 })();

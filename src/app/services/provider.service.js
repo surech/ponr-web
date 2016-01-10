@@ -9,7 +9,8 @@
   function providerService($resource) {
     return $resource('http://api.poinzofnoreturn.ch/provider', {}, {
       query: {method: 'GET' },
-      create: {method: 'POST' }
+      create: {method: 'POST' },
+      queryWithCodes: {method: 'GET', url: 'http://api.poinzofnoreturn.ch/provider/search/onlyWithCodes'}
     });
   }
 })();

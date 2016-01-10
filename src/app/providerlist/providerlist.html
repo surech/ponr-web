@@ -1,5 +1,13 @@
-<ul>
-  <li ng-repeat="provider in providerListCtrl.providers._embedded.provider">
-    {{provider.name}}
-  </li>
-</ul>
+<div class="row">
+<div class="btn-group loadSize" role="group" aria-label="...">
+  <button type="button" class="btn btn-default" ng-class="{'btn-default': providerListCtrl.loadAll, 'btn-primary': !providerListCtrl.loadAll}" ng-click="providerListCtrl.toggleLoad()">Nur mit Codes anzeigen</button>
+  <button type="button" class="btn btn-default" ng-class="{'btn-default': !providerListCtrl.loadAll, 'btn-primary': providerListCtrl.loadAll}" ng-click="providerListCtrl.toggleLoad()">Alle Anzeigen</button>
+</div>
+</div>
+
+<div class="providerGrid">
+  <div class="thumbnail" ng-repeat="provider in providerListCtrl.providers._embedded.provider">
+    <providerdetail provider="provider"></providerdetail>
+  </div>
+</div>
+
