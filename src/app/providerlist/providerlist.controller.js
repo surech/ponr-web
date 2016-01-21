@@ -15,23 +15,34 @@
 
     vm.providers = [];
 
-    activate();
+    vm.pageInformation = {};
 
     function activate() {
-      loadProviders();
+      vm.loadProviders();
     }
 
-    function loadProviders(){
-      if(vm.loadAll) {
-        vm.providers = providerService.query();
+    vm.loadProviders = function (pageNumber) {
+
+      pageNumber = pageNumber ? pageNumber : 0;
+
+      if (vm.loadAll) {
+        vm.providers = providerService.query({size: '12', page: pageNumber});
       } else {
-        vm.providers = providerService.queryWithCodes();
+        vm.providers = providerService.queryWithCodes({size: '12', page: pageNumber});
       }
+
+      vm.providers.$promise.then(onProviderLoaded);
+    };
+
+    function onProviderLoaded(response){
+      vm.pageInformation = response.page;
     }
-    
+
     vm.toggleLoad = function(){
       vm.loadAll = !vm.loadAll;
-      loadProviders();
+      vm.loadProviders();
     }
+
+    activate();
   }
 })();

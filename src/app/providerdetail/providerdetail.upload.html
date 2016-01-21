@@ -1,7 +1,7 @@
 <div class="qrcodeConfirmation">
   <p class="text-center">Der Code wurde erfolgreich erkannt:</p>
   <img class="qrcodeUploaded"
-       src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{providerDetailCtrl.qrcodeContent}}"/>
+       ng-src="{{providerDetailCtrl.qrcodeContent && 'http://api.poinzofnoreturn.ch/qrcode/generate?input=' + providerDetailCtrl.qrcodeContent || ''}}"/>
   <div class="btn-group center" style="width: 90%">
     <a href="" class="btn btn-default center" ng-click="providerDetailCtrl.cancelUpload()" role="button" style="width: 50%">Abbrechen</a>
     <a href="" class="btn btn-primary center" ng-click="providerDetailCtrl.saveUpload()" role="button" style="width: 50%">Speichern</a>
