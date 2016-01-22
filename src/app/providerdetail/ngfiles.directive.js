@@ -14,7 +14,7 @@
           });
           //onChange(scope, { $files: event.target.files });
         });
-      };
+      }
 
       return {
         link: fn_link
