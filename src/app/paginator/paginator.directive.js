@@ -9,7 +9,7 @@
   function paginator() {
     return {
       restrict: 'AE',
-      scope: {
+      bindToController: {
         pageInformation: '=',
         loadPage: '&'
       },

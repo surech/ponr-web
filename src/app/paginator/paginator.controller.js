@@ -19,11 +19,9 @@
 
     vm.currentPage = 0;
 
-    activate();
-
     function activate() {
       // Änderungen überwachen
-      $scope.$watch('pageInformation', onPageInformationChanged)
+      $scope.$watch('paginatorCtrl.pageInformation', onPageInformationChanged)
     }
 
     function onPageInformationChanged(pageInformation){
@@ -49,7 +47,7 @@
     }
 
     vm.changePage = function (pageNumber) {
-      $scope.loadPage({'pageNumber': pageNumber});
+      vm.loadPage({'pageNumber': pageNumber});
     };
 
     vm.gotoNext = function () {
@@ -59,5 +57,7 @@
     vm.gotoPrev = function () {
       vm.changePage(vm.currentPage - 1);
     };
+
+    activate();
   }
 })();
