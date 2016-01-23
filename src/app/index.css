@@ -23,8 +23,10 @@ img.qrcodeUploaded {
 .oneliner {
   display: block;
   width: 100%;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  min-height: 1.5em;
 }
 
 .noqrcodeplaceholder {
@@ -87,4 +89,10 @@ img.qrcodeUploaded {
   width: 258px;
   float: left;
   margin-right: 20px;
+}
+
+nav {
+  display: block;
+  width: 100%;
+  float: left;
 }

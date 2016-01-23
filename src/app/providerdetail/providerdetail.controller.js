@@ -83,12 +83,12 @@
       // Speichern
       var code = {
         content: vm.qrcodeContent,
-        provider: $scope.provider._links.self.href
+        provider: vm.provider._links.self.href
       };
       pointcodeService.create(code);
 
       // Provider anpassen
-      $scope.provider.pointcodes.push(code);
+      vm.provider.pointcodes.push(code);
 
       // View aktualisieren
       vm.cancelUpload();

@@ -1,8 +1,27 @@
 <div class="row">
-<div class="btn-group loadSize" role="group" aria-label="...">
-  <button type="button" class="btn btn-default" ng-class="{'btn-default': providerListCtrl.loadAll, 'btn-primary': !providerListCtrl.loadAll}" ng-click="providerListCtrl.toggleLoad()">Nur mit Codes anzeigen</button>
-  <button type="button" class="btn btn-default" ng-class="{'btn-default': !providerListCtrl.loadAll, 'btn-primary': providerListCtrl.loadAll}" ng-click="providerListCtrl.toggleLoad()">Alle Anzeigen</button>
-</div>
+  <div class="col-xs-2 form-horizontal">
+    <label for="sortSelect" class="control-label">Sortieren nach: </label>
+  </div>
+  <div class="col-xs-3 form-horizontal">
+    <select name="sortSelect" id="sortSelect" class="form-control" ng-change="providerListCtrl.loadProviders()"
+            ng-model="providerListCtrl.sortBy">
+      <option value="name">Name</option>
+      <option value="city">Ort</option>
+      <option value="zip">Postleitzahl</option>
+    </select>
+  </div>
+  <div class="col-xs-7">
+    <div class="btn-group loadSize" role="group" aria-label="...">
+      <button type="button" class="btn btn-default"
+              ng-class="{'btn-default': providerListCtrl.loadAll, 'btn-primary': !providerListCtrl.loadAll}"
+              ng-click="providerListCtrl.toggleLoad()">Nur mit Codes anzeigen
+      </button>
+      <button type="button" class="btn btn-default"
+              ng-class="{'btn-default': !providerListCtrl.loadAll, 'btn-primary': providerListCtrl.loadAll}"
+              ng-click="providerListCtrl.toggleLoad()">Alle anzeigen
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class="providerGrid">
@@ -10,4 +29,7 @@
     <providerdetail provider="provider"></providerdetail>
   </div>
 </div>
+
+<paginator page-information="providerListCtrl.providers.page"
+           load-page="providerListCtrl.loadProviders(pageNumber)"></paginator>
 
