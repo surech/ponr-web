@@ -4,13 +4,15 @@
   angular.module('ponrWeb')
     .factory('providerService', providerService);
 
-  providerService.$inject = ['$resource'];
+  providerService.$inject = ['$resource', 'REST_END_POINT'];
 
-  function providerService($resource) {
-    return $resource('http://api.poinzofnoreturn.ch/provider', {}, {
+  function providerService($resource, REST_END_POINT) {
+    return $resource(REST_END_POINT + '/provider', {}, {
       query: {method: 'GET' },
       create: {method: 'POST' },
-      queryWithCodes: {method: 'GET', url: 'http://api.poinzofnoreturn.ch/provider/search/onlyWithCodes'}
+      queryWithCodes: {method: 'GET', url: REST_END_POINT + '/provider/search/onlyWithCodes'},
+      queryFulltext: {method: 'GET', url: REST_END_POINT + '/provider/search/fulltext'},
+      queryFulltextWithCodes: {method: 'GET', url: REST_END_POINT +'/provider/search/fulltextWithCodes'}
     });
   }
 })();

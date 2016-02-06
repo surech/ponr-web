@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-hide="headerbarCtrl.authenticated">
+        <a href="{{headerbarCtrl.loginUrl}}">Login</a>
+      </li>
+      <li ng-show="headerbarCtrl.authenticated">
+        Du bist {{headerbarCtrl.username}}
+      </li>
+      <li ng-show="headerbarCtrl.authenticated">
+        <button type="button" class="btn btn-default navbar-btn" ng-click="headerbarCtrl.logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>
