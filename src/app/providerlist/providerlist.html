@@ -10,7 +10,15 @@
       <option value="zip">Postleitzahl</option>
     </select>
   </div>
-  <div class="col-xs-7">
+  <div class="col-xs-3">
+    <form class="input-group">
+      <input type="text" class="form-control" ng-model="providerListCtrl.searchTerm" placeholder="Suche nach Name und Ort...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit" ng-click="providerListCtrl.loadProviders()">Suche!</button>
+      </span>
+    </form>
+  </div>
+  <div class="col-xs-4">
     <div class="btn-group loadSize" role="group" aria-label="...">
       <button type="button" class="btn btn-default"
               ng-class="{'btn-default': providerListCtrl.loadAll, 'btn-primary': !providerListCtrl.loadAll}"

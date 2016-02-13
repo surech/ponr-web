@@ -19,6 +19,8 @@
 
     vm.sortBy = "name";
 
+    vm.searchTerm = "";
+
     function activate() {
       vm.loadProviders();
     }
@@ -28,12 +30,25 @@
       pageNumber = pageNumber ? pageNumber : 0;
 
       // Parameter für die Suche zusammenstellen
-      var searchParams = {size: '12', page: pageNumber, sort: vm.sortBy};
+      var searchParams = {
+        size: '12',
+        page: pageNumber,
+        sort: vm.sortBy,
+        searchTerm: vm.searchTerm
+      };
 
       if (vm.loadAll) {
-        vm.providers = providerService.query(searchParams);
+        if(vm.searchTerm){
+          vm.providers = providerService.queryFulltext(searchParams);
+        } else {
+          vm.providers = providerService.query(searchParams);
+        }
       } else {
-        vm.providers = providerService.queryWithCodes(searchParams);
+        if(vm.searchTerm){
+          vm.providers = providerService.queryFulltextWithCodes(searchParams);
+        } else {
+          vm.providers = providerService.queryWithCodes(searchParams);
+        }
       }
 
       vm.providers.$promise.then(onProviderLoaded);
