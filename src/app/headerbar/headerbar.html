@@ -5,7 +5,7 @@
         <a href="{{headerbarCtrl.loginUrl}}">Login</a>
       </li>
       <li ng-show="headerbarCtrl.authenticated">
-        Du bist {{headerbarCtrl.username}}
+        <p class="navbar-text">Du bist {{headerbarCtrl.username}}</p>
       </li>
       <li ng-show="headerbarCtrl.authenticated">
         <button type="button" class="btn btn-default navbar-btn" ng-click="headerbarCtrl.logout()">Logout</button>

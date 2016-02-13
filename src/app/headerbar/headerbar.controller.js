@@ -11,13 +11,18 @@
   function HeaderbarController(userService, logoutService, REST_END_POINT, $location) {
     var vm = this;
 
-    vm.loginUrl = REST_END_POINT + "/login";
+    vm.loginUrl = REST_END_POINT + "/login/facebook?targetUrl=";
 
     vm.authenticated = false;
 
     vm.username = "n/a";
 
     function activate() {
+      // Facebook akzeptiert praktisch keine Sonderzeichen. Deshalb müssen wir die Redirect-Url hier Base64-Verschlüsseln
+      var encodedTargetUrl = btoa($location.absUrl());
+      encodedTargetUrl = encodedTargetUrl.replace("=", "");
+      vm.loginUrl += encodedTargetUrl;
+
       // Daten laden
       checkLogin();
     }
