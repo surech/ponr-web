@@ -1,5 +1,8 @@
-<img ng-show="provider.pointcodes.length" class="qrcode"
-     src="http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}"/>
+<div ng-show="provider.pointcodes.length" class="qrcode"
+     style="background-image: url('http://api.poinzofnoreturn.ch/qrcode/generate?input={{provider.pointcodes[0].content}}')">
+  <a href="" ng-click="providerDetailCtrl.showLightbox()" class="command zoom"><span class="glyphicon glyphicon-zoom-in"></span></a>
+</div>
+
 
 <div class="noqrcodeplaceholder" ng-hide="provider.pointcodes.length">
   <p class="text-center">Für diesen Anbieter wurde noch kein Code hochgeladen</p>

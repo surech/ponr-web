@@ -7,10 +7,36 @@ body { padding-top: 70px; }
   padding: 0.2em 0;
 }
 
-img.qrcode {
+.qrcode {
   height: 250px;
   width: 250px;
+  background-size: 250px 250px;
   display: block;
+  position: relative;
+}
+
+.qrcode .command {
+  display: block;
+  height: 25%;
+  width: 25%;
+  position: absolute;
+  text-align: center;
+  background-color: rgba(238, 238, 238, 0.9);
+  padding-top: 10px;
+}
+
+.qrcode .command:hover {
+  background-color: rgba(238, 238, 238, 1);
+}
+
+.qrcode .command .glyphicon {
+  font-size: 40px;
+}
+
+.qrcode .command.zoom {
+  float: right;
+  right: 0px;
+  bottom: 0px;
 }
 
 img.qrcodeUploaded {
@@ -101,4 +127,11 @@ nav {
 
 .navbar-right {
   margin-right: 0px;
+}
+
+/* Lightbox optimieren */
+
+.modal-backdrop.in {
+  opacity: 1;
+  background-color: whitesmoke;
 }

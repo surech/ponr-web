@@ -5,10 +5,10 @@
     .module('ponrWeb')
     .controller('ProviderDetailController', ProviderDetailController);
 
-  ProviderDetailController.$inject = ['$log', 'toastr', '$http', '$scope', 'pointcodeService'];
+  ProviderDetailController.$inject = ['$log', 'toastr', '$http', '$scope', 'pointcodeService', 'Lightbox'];
 
   /** @ngInject */
-  function ProviderDetailController($log, toastr, $http, $scope, pointcodeService) {
+  function ProviderDetailController($log, toastr, $http, $scope, pointcodeService, Lightbox) {
     var vm = this;
 
     // Definiert den Status der QR-Code anzeige
@@ -93,5 +93,16 @@
       // View aktualisieren
       vm.cancelUpload();
     }
+
+    vm.showLightbox = function() {
+      // Lightbox erwartet ein Array von Bildern. Kann es gerne haben:
+      var images = [
+        {
+          'url': 'http://api.poinzofnoreturn.ch/qrcode/generate?input=' + vm.provider.pointcodes[0].content,
+          'thumbUrl': 'http://api.poinzofnoreturn.ch/qrcode/generate?input=' + vm.provider.pointcodes[0].content
+        }
+      ];
+      Lightbox.openModal(images, 0);
+    };
   }
 })();
